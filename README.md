@@ -135,7 +135,6 @@ ram-verification/
 |   |-- testplan.md
 |   `-- images/
 `-- results/
-    `-- covsummaru.html/
 ```
 
 ---
