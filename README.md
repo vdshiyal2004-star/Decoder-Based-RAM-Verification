@@ -81,8 +81,8 @@ Each phase writes all 128 addresses (random order), then reads them all back.
 | 5 | `FE,FD,FB,F7,EF,DF,BF,7F` | Walking zeros |
 | 6 | Structured / sequential values | Data-integrity check |
 | 7 | Fully random | Random data |
-| - | Repeated random reads (128) | Read-after-write stability |
-| - | Reset, then read all 128 addresses | Reset must clear memory (expects `0x00`) |
+| 8 | Repeated random reads (128) | Read-after-write stability |
+| 9 | Reset, then read all 128 addresses | Reset must clear memory (expects `0x00`) |
 
 Totals: **1024 writes, 1280 reads checked.**
 
@@ -104,9 +104,7 @@ Reset released       = 1
 Post-reset read seen = 1
 ```
 
-Full log: [`results/transcript.txt`](results/transcript.txt)
-
-(Add your waveform and coverage screenshots in `docs/images/` and link them here.)
+Full log: [`result/covsummary.html`](result/covsummary.html)
 
 ---
 
@@ -116,7 +114,6 @@ Full log: [`results/transcript.txt`](results/transcript.txt)
 ram-verification/
 |-- README.md
 |-- LICENSE
-|-- .gitignore
 |-- rtl/
 |   `-- ram.v
 |-- tb/
@@ -133,44 +130,18 @@ ram-verification/
 |   |-- ram_test.sv
 |   |-- ram_pkg.sv
 |   `-- ram_tb_top.sv
-|-- sim/
-|   `-- run.do
+
 |-- docs/
 |   |-- testplan.md
 |   `-- images/
 `-- results/
-    |-- transcript.txt
-    `-- coverage_report/
+    `-- covsummaru.html/
 ```
 
 ---
 
-## 6. How to Run
 
-Requirements: QuestaSim / ModelSim with SystemVerilog support.
-
-```tcl
-cd sim
-vsim -do run.do
-```
-
-Or manually in the QuestaSim console:
-
-```tcl
-vlib work
-vlog -sv +incdir+../tb ../tb/ram_interface.sv
-vlog -sv ../rtl/ram.v
-vlog -sv +incdir+../tb ../tb/ram_pkg.sv
-vlog -sv +incdir+../tb ../tb/ram_tb_top.sv
-vsim work.ram_tb_top
-run -all
-```
-
-Expected end of log: `TEST RESULT = PASS`.
-
----
-
-## 7. Key Features
+## 6. Key Features
 
 - Layered class-based architecture with mailboxes
 - Separate write and read drivers/monitors
@@ -182,7 +153,7 @@ Expected end of log: `TEST RESULT = PASS`.
 
 ---
 
-## 8. Future Improvements
+## 7. Future Improvements
 
 - Add SystemVerilog Assertions (SVA) on the interface
 - Add back-to-back read/write same-address tests
@@ -192,11 +163,11 @@ Expected end of log: `TEST RESULT = PASS`.
 
 ---
 
-## 9. Author
+## 8. Author
 
 **Your Name**
-Your College / Company | VLSI / Design Verification
-LinkedIn: `your-link` | Email: `your-email`
+SVNIT surat | VLSI / Design Verification
+LinkedIn: `https://www.linkedin.com/in/vishal-shiyal-2481872bb/` | Email: `vdshiyal2004@gmail.com`
 
 ## 10. License
 
