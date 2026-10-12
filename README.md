@@ -104,7 +104,7 @@ Reset released       = 1
 Post-reset read seen = 1
 ```
 
-Full log: [`result/covsummary.html`](result/covsummary.html)
+
 
 ---
 
